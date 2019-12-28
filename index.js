@@ -22,15 +22,13 @@ function getRepo() {
 
 function displayResults(responseJson, maxResults) {
   console.log(`length of responseJson: ${responseJson.length}`);
-  console.log(`url: ${responseJson.html_url}`);
-  console.log(`url: ${responseJson.name}`);
   console.log(responseJson);
   $('#results-list').empty();
   
   for (let i = 0; i < responseJson.length; i++) {
     console.log('before append');
-    $('#results-list').append(`<li><h3><a href="${responseJson.html_url[i]}">${responseJson.name[i]}</a></h3></li>`);
-    console.log('before append');
+    $('#results-list').append(`<li><h3><a href="${responseJson[i].html_url}">${responseJson[i].name}</a></h3></li>`);
+    console.log('after append');
   }
   $('#results').removeClass('hidden');
   console.log('after showing');
